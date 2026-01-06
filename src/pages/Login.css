@@ -1,0 +1,139 @@
+.login-page-split {
+    min-height: 100vh;
+    background-color: var(--color-bg-surface);
+    padding-top: 140px;
+    /* Increased padding */
+    position: relative;
+    z-index: 1;
+    /* Ensure base level context */
+}
+
+.login-split-container {
+    display: flex;
+    min-height: calc(100vh - 140px);
+    /* Adjust height */
+    position: relative;
+    z-index: 1;
+}
+
+/* Left Side: Image */
+.login-image-section {
+    flex: 1;
+    position: relative;
+    display: none;
+    /* Hidden on mobile */
+}
+
+@media (min-width: 900px) {
+    .login-image-section {
+        display: block;
+        max-width: 50%;
+    }
+}
+
+.login-sidebar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+}
+
+.login-image-overlay h2 {
+    font-size: 2rem;
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+}
+
+.login-image-overlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Right Side: Form */
+.login-form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: white;
+}
+
+.login-form-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 1.5rem;
+}
+
+.login-card {
+    padding: 2.5rem;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-main);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+}
+
+.styled-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.8rem;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    transition: all 0.2s;
+}
+
+.styled-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(107, 142, 120, 0.1);
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

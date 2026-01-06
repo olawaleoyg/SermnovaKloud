@@ -1,0 +1,52 @@
+:root {
+  /* Typeface */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  /* Palette: Calm, Professional, "University" feel */
+  /* Backgrounds */
+  --color-bg-main: #F9F9F7;   /* Cream/Paper */
+  --color-bg-surface: #FFFFFF;
+  --color-bg-surface-glass: rgba(255, 255, 255, 0.7);
+  
+  /* Text */
+  --color-text-main: #1A1C20; /* Charcoal */
+  --color-text-muted: #5A5D63;
+  --color-text-inverse: #FFFFFF;
+
+  /* Brand Colors */
+  --color-primary: #6B8E78;   /* Muted Sage */
+  --color-primary-hover: #5A7A66;
+  --color-secondary: #4A5D6E; /* Slate */
+  --color-accent: #D4B483;    /* Subtle Gold/Sand for small highlights */
+
+  /* Status */
+  --color-success: #6B8E78;
+  --color-warning: #E0A458;
+  --color-error: #C75B5B;
+
+  /* Spacing & Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+  --shadow-glass: 0 8px 32px 0 rgba(74, 93, 110, 0.1);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+}
+
+.dark {
+  /* A Deep Slate/Charcoal dark mode if needed later, but focusing on light for "Calm" first */
+  --color-bg-main: #0F1216;
+  --color-bg-surface: #1A1C20;
+  --color-text-main: #F9F9F7;
+  --color-text-muted: #A0A4AB;
+  --color-bg-surface-glass: rgba(26, 28, 32, 0.7);
+}

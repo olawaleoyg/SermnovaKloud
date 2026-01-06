@@ -1,0 +1,95 @@
+.track-detail-page {
+    background-color: #F8FAF9;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.track-detail-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+}
+
+.projects-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-item-card {
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.project-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.status-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bg-blue-50 {
+    background-color: #EFF6FF;
+}
+
+.border-blue-100 {
+    border-color: #DBEAFE;
+}
+
+.text-blue-800 {
+    color: #1E40AF;
+}
+
+.bg-green-100 {
+    background-color: #DCFCE7;
+}
+
+.text-green-700 {
+    color: #15803D;
+}
+
+.bg-gray-100 {
+    background-color: #F3F4F6;
+}
+
+.opacity-70 {
+    opacity: 0.75;
+}
+
+.opacity-90 {
+    opacity: 0.9;
+}
+
+.text-\[10px\] {
+    font-size: 10px;
+}
+
+.py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}

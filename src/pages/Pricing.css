@@ -1,0 +1,168 @@
+.pricing-page {
+    background-color: #F8FAF9;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.pricing-container {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.duration-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.duration-toggle {
+    display: flex;
+    padding: 0.25rem;
+    border-radius: 9999px;
+    gap: 0.25rem;
+    background: rgba(255, 255, 255, 0.5);
+    /* Slightly lighter glass */
+}
+
+.toggle-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+    color: var(--color-text-main);
+    background: rgba(107, 142, 120, 0.05);
+}
+
+.toggle-btn.active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(107, 142, 120, 0.2);
+}
+
+.pricing-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    /* Center featured card vertically if it scales */
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pricing-card.featured {
+    border: 2px solid var(--color-primary);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+    z-index: 10;
+}
+
+.featured-label {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.plan-header h3 {
+    font-size: 1.5rem;
+    font-family: var(--font-sans);
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    line-height: 1;
+}
+
+.period {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.plan-desc {
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+}
+
+.plan-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.plan-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+.feature-check {
+    color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+    .pricing-card.featured {
+        transform: none;
+    }
+}
+
+/* Specific Hover Effects for Pricing Buttons */
+.pricing-card .btn {
+    transition: all 0.3s ease;
+}
+
+/* "Current Plan" & "Get Elite Status" (Outline) -> Fill on hover */
+.pricing-card .btn-outline:hover {
+    background-color: var(--color-secondary);
+    color: #FFFFFF;
+    border-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 93, 110, 0.2);
+}
+
+/* "Upgrade to Pro" (Primary) -> Brighter/Lift on hover */
+.pricing-card .btn-primary:hover {
+    background-color: #557662;
+    /* Slightly darker/richer Sage */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(107, 142, 120, 0.4);
+}

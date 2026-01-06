@@ -1,0 +1,85 @@
+.dashboard-page {
+    background-color: #F8FAF9;
+    min-height: 100vh;
+    padding-top: 80px;
+    /* Space for fixed navbar */
+}
+
+.dashboard-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgba(107, 142, 120, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+}
+
+.project-meta {
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.w-full {
+    width: 100%;
+}

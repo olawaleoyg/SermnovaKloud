@@ -1,0 +1,117 @@
+.submission-page {
+    background-color: #F8FAF9;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.submission-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.submission-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+}
+
+.submission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.submission-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.feedback-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
+}
+
+.feedback-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.feedback-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.mentor-msg {
+    align-items: flex-end;
+}
+
+.mentor-msg .feedback-bubble {
+    background-color: var(--color-primary);
+    color: #fff;
+    border-bottom-right-radius: 0;
+}
+
+.learner-msg {
+    align-items: flex-start;
+}
+
+.learner-msg .feedback-bubble {
+    background-color: #E2E8F0;
+    color: var(--color-text-main);
+    border-bottom-left-radius: 0;
+}
+
+.feedback-header {
+    margin-bottom: 0.25rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.feedback-bubble {
+    padding: 0.75rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    max-width: 90%;
+}
+
+.feedback-input textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-sans);
+    resize: none;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-input textarea:focus {
+    outline: 2px solid var(--color-primary);
+    border-color: transparent;
+}
+
+@media (max-width: 900px) {
+    .submission-layout {
+        grid-template-columns: 1fr;
+    }
+}
