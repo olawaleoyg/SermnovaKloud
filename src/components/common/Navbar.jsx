@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import { useAuth } from '../../context/AuthContext';
 import Button from '../ui/Button';
@@ -8,6 +8,7 @@ import './Navbar.css';
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
     const { user, logout } = useAuth();
 
     useEffect(() => {
@@ -18,6 +19,15 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleLogout = async () => {
+        try {
+            await logout();
+            navigate('/');
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+    };
+
     return (
         <nav className={clsx('navbar', { 'navbar-scrolled': scrolled })}>
             <div className="navbar-container">
@@ -27,39 +37,15 @@ const Navbar = () => {
 
                 <div className="navbar-links">
                     <Link to="/" className={clsx('nav-link', { active: location.pathname === '/' })}>Home</Link>
-
-                    {/* Common Links */}
-                    {/* Common Links */}
                     <Link to="/tracks" className={clsx('nav-link', { active: location.pathname.startsWith('/tracks') })}>Projects</Link>
 
-                    {/* Learner Links (Free/Subscriber Only) */}
-                    {(user.role === 'free' || user.role === 'subscriber') && (
-                        <>
-                            <Link to="/learner" className={clsx('nav-link', { active: location.pathname === '/learner' })}>My Submissions</Link>
-                            <Link to="/learner" className={clsx('nav-link', { active: location.pathname === '/learner/feedback' })}>Feedback</Link>
-                        </>
-                    )}
-
-                    {/* Mentor Links */}
-                    {user.role === 'mentor' && (
-                        <>
-                            <Link to="/mentor" className={clsx('nav-link', { active: location.pathname.startsWith('/mentor') })}>Review Queue</Link>
-                            <Link to="/mentor" className={clsx('nav-link', { active: location.pathname === '/mentor/feedback' })}>Feedback</Link>
-                        </>
-                    )}
-
-                    {/* Admin Links */}
-                    {user.role === 'admin' && (
-                        <>
-                            <Link to="/mentor" className={clsx('nav-link', { active: location.pathname.startsWith('/mentor') })}>Review Queue</Link>
-                            <Link to="/admin" className={clsx('nav-link', { active: location.pathname === '/admin' })}>Users</Link>
-                            <Link to="/admin" className={clsx('nav-link', { active: location.pathname === '/admin/settings' })}>Settings</Link>
-                        </>
+                    {user && (
+                        <Link to="/learner" className={clsx('nav-link', { active: location.pathname === '/learner' })}>Dashboard</Link>
                     )}
                 </div>
 
                 <div className="navbar-actions">
-                    {user.role === 'guest' ? (
+                    {!user ? (
                         <>
                             <Link to="/login">
                                 <Button variant="ghost" size="sm">Login</Button>
@@ -71,11 +57,9 @@ const Navbar = () => {
                     ) : (
                         <div className="flex items-center gap-4">
                             <span className="text-sm font-medium">
-                                {user.role === 'free' && 'Free Plan'}
-                                {user.role === 'subscriber' && 'Pro Plan'}
-                                {user.role === 'admin' && 'Admin'}
+                                {user.email}
                             </span>
-                            <Button variant="ghost" size="sm" onClick={logout}>Logout</Button>
+                            <Button variant="ghost" size="sm" onClick={handleLogout}>Logout</Button>
                         </div>
                     )}
                 </div>

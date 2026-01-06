@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import Button from '../components/ui/Button';
-import { mockAuthService } from '../services/mockAuthService';
+import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import './Login.css';
 
@@ -13,6 +13,10 @@ const Login = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const { login } = useAuth();
+
+    const from = location.state?.from?.pathname || '/learner';
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -21,8 +25,8 @@ const Login = () => {
 
         setIsLoading(true);
         try {
-            await mockAuthService.loginWithPassword(email, password);
-            navigate('/pricing');
+            await login(email, password);
+            navigate(from, { replace: true });
         } catch (err) {
             setError(err.message || 'Invalid credentials');
         } finally {

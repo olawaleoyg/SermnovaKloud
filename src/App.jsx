@@ -11,21 +11,24 @@ import Pricing from './pages/Pricing';
 import RoleSwitcher from './components/common/RoleSwitcher';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/learner" element={<LearnerDashboard />} />
-        <Route path="/submission/:id" element={<SubmissionView />} />
-        <Route path="/tracks" element={<Tracks />} />
-        <Route path="/tracks/:id" element={<TrackDetail />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/mentor" element={<MentorDashboard />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+
+        {/* Protected Routes */}
+        <Route path="/learner" element={<ProtectedRoute><LearnerDashboard /></ProtectedRoute>} />
+        <Route path="/submission/:id" element={<ProtectedRoute><SubmissionView /></ProtectedRoute>} />
+        <Route path="/tracks" element={<ProtectedRoute><Tracks /></ProtectedRoute>} />
+        <Route path="/tracks/:id" element={<ProtectedRoute><TrackDetail /></ProtectedRoute>} />
+        <Route path="/mentor" element={<ProtectedRoute><MentorDashboard /></ProtectedRoute>} />
+        <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
       </Routes>
       <RoleSwitcher />
     </>
