@@ -1,50 +1,34 @@
-# Deployment Guide for Namecheap / cPanel
+# Deployment Guide for Vercel
 
-This guide explains how to deploy the **Sermnova Kloud** application to a Namecheap Shared Hosting environment (cPanel).
+This guide explains how to deploy the **Sermnova Kloud** application to Vercel.
 
 ## Prerequisites
-- Node.js installed locally.
-- Access to cPanel File Manager or FTP.
+- A [Vercel](https://vercel.com) account.
+- GitHub repository connected to Vercel.
 
-## 1. Build the Project
-Run the following command in your terminal to create the optimized production build:
+## 1. Automatic Deployment (Recommended)
+1.  Push your code to your GitHub repository.
+2.  Log in to Vercel and click **"Add New..."** -> **"Project"**.
+3.  Import your GitHub repository.
+4.  Vercel will detect it's a Vite project. The default settings should work automatically:
+    - **Framework Preset**: Vite
+    - **Build Command**: `vite build` (or `npm run build`)
+    - **Output Directory**: `dist`
+5.  Click **Deploy**.
 
-```bash
-npm run build
+## 2. Configuration
+The project includes a `vercel.json` file to handle Client-Side Routing (SPA):
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
 ```
 
-This will create a `dist/` folder in your project root containing:
-- `index.html`
-- `assets/` (bundled JS and CSS)
-- `.htaccess` (for routing)
-- Other static assets
+This ensures that refreshing a page on a specific route (e.g., `/dashboard`) doesn't return a 404 error but instead loads the app so React Router can handle the URL.
 
-## 2. Verify the Build
-Open `dist/index.html` in a text editor.
-- ✅ It should reference files like `/assets/index-XXXX.js`.
-- ❌ It should **NOT** reference `/src/main.jsx`.
-
-## 3. Upload to cPanel
-1.  Log in to your **cPanel**.
-2.  Go to **File Manager**.
-3.  Navigate to `public_html` (or the subdomain folder if applicable).
-4.  **Delete** existing files (except `cgi-bin` or other system folders) to ensure a clean install.
-5.  **Upload** the **CONTENTS** of the `dist/` folder.
-    *   Do **NOT** upload the `dist` folder itself.
-    *   Upload `index.html`, `.htaccess`, `assets/`, etc., directly into `public_html`.
-
-### Structure Check
-Your `public_html` should look like this:
-```
-public_html/
-├── .htaccess
-├── index.html
-├── assets/
-│   ├── index-xxxxx.js
-│   └── index-xxxxx.css
-└── images/
-```
-
-## 4. Troubleshooting
-- **Blank Page?** Ensure you uploaded the *contents* of `dist`, not the `src` folder.
-- **404 Errors on Refresh?** Ensure the `.htaccess` file was uploaded correctly. (It might be hidden; enable "Show Hidden Files" in cPanel settings).
+## 3. Environment Variables
+If your app uses environment variables (e.g., `VITE_API_URL`), make sure to add them in Vercel:
+1.  Go to your Project Settings in Vercel.
+2.  Click **Environment Variables**.
+3.  Add keys and values as needed.

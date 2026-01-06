@@ -38,11 +38,28 @@ In **Development Mode** (`npm run dev`), the Email OTP system logs the verificat
 - Codes expire in 10 minutes.
 - Rate limited to 1 request per minute.
 
-## Build and Deploy
+## Local Testing (Production Preview)
+To test the production build locally (simulating how it will run on Vercel):
+
+1.  **Build the project**:
     ```bash
     npm run build
+    ```
+2.  **Run the preview server**:
+    ```bash
     npm run preview
     ```
+3.  Open the URL shown in the terminal (usually `http://localhost:4173`).
+
+> [!NOTE]
+> `npm run preview` uses the `dist/` folder. It's a great way to verify that your build works correctly before deploying.
+
+## Deployment
+This project is optimized for deployment on Vercel.
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
 
 ## Project Structure
 - `src/components`: Reusable UI components.
@@ -50,7 +67,4 @@ In **Development Mode** (`npm run dev`), the Email OTP system logs the verificat
 - `src/styles`: Global CSS variables and reset.
 - `src/data`: Mock data for demonstration.
 
-## Deployment
-This project is ready to deploy on Vercel, Netlify, or any static host.
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
+
